@@ -19,19 +19,24 @@ namespace computerVisionWPF
 
         Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
         Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux2 = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
+        short[,] matIx;
+        short[,] matIy;
+        short[,] matD;//Guarda las direcciones
+
 
         int[,] mascara;
 
         public wdPractica8()
         {
             InitializeComponent();
-            mascara = new int[,] { { 1, 4,7, 4, 1 },{ 4, 16, 26, 16, 4 },{ 7, 26, 41, 26, 7 },{ 4, 16, 26,16, 4 },{ 1, 4, 7, 4, 1 }};
+            mascara = new int[,] { { 1, 4, 7, 4, 1 }, { 4, 16, 26, 16, 4 }, { 7, 26, 41, 26, 7 }, { 4, 16, 26, 16, 4 }, { 1, 4, 7, 4, 1 } };
             def();
         }
         private void def() {
 
             ctlIma.Source = ToBitmapSource(imaO);
-            g180Mascara();
+
         }
 
 
@@ -61,7 +66,7 @@ namespace computerVisionWPF
             System.Drawing.Bitmap b;
             b = imaO.Bitmap;
             imaAux.Bitmap = b;
-
+            g180Mascara();
 
             for (int i = (int)(mascara.GetLength(0) / 2); i < imaO.Height - (int)(mascara.GetLength(0) / 2); i++)//recorre en vertical      
             {
@@ -73,7 +78,7 @@ namespace computerVisionWPF
                         for (int y = 0; y < mascara.GetLength(1); y++)
                         {
 
-                            numerador += (imaO.Data[i + x - (int)(mascara.GetLength(0) / 2), j + y - (int)(mascara.GetLength(1) / 2), 0])*mascara[x,y];
+                            numerador += (imaO.Data[i + x - (int)(mascara.GetLength(0) / 2), j + y - (int)(mascara.GetLength(1) / 2), 0]) * mascara[x, y];
 
 
                         }
@@ -82,10 +87,7 @@ namespace computerVisionWPF
                 }
 
             }
-            ctlIma.Source = ToBitmapSource(imaAux);
-            b = imaAux.Bitmap;
-            imaO.Bitmap = b;
-
+            //ctlIma.Source = ToBitmapSource(imaAux);
 
         }
         [DllImport("gdi32")]
@@ -115,7 +117,8 @@ namespace computerVisionWPF
 
         private void btnCanny_Click(object sender, RoutedEventArgs e)
         {
-            Convolucion();
+            Canny();
+
         }
 
         private void btnOpenImagen_Click(object sender, RoutedEventArgs e)
@@ -130,109 +133,182 @@ namespace computerVisionWPF
             }
         }
 
-        private void btnIx_Click(object sender, RoutedEventArgs e)
-        {
-            Ix();
-        }
-
-        private void btnIy_Click(object sender, RoutedEventArgs e)
-        {
-            Iy();
-        }
-
-        private void btnIu_Click(object sender, RoutedEventArgs e)
-        {
-            Iu();
-        }
-
-        private void btnIo_Click(object sender, RoutedEventArgs e)
-        {
-
+        private void Canny() {
+            // 1. Convuluciona la imagen con un filtro gaussiano
+            Convolucion();
+            // 2. Encontral el gradiente de la imagen 
+            Ix(); Iy();
+            I(); Io();
+            // 3. Supresion de No maximos
+            discretisar();
+            comparacionVecinos();
+            // 4. Histeresis de doble umbral
+           histeresiDUmbral();
         }
 
 
         private void Ix()
         {
 
-            
-            System.Drawing.Bitmap b;
-            b = imaO.Bitmap;
-            imaAux.Bitmap = b;
-
-
-            for (int i = (int)(mascara.GetLength(0) / 2); i < imaO.Height - (int)(mascara.GetLength(0) / 2); i++)//recorre en vertical      
+            matIx = new short[imaAux.Height, imaAux.Width];
+            for (int i = 0; i < imaAux.Height; i++)//recorre en vertical      
             {
-                for (int j = (int)(mascara.GetLength(1) / 2); j < imaO.Width - (int)(mascara.GetLength(1) / 2)-1; j++)//recorre en horizontal
+                for (int j = 0; j < imaAux.Width - 1; j++)//recorre en horizontal
                 {
-
-
-                    imaAux.Data[i, j, 0] = (byte)(Math.Abs(imaO.Data[i, j+1, 0] - imaO.Data[i, j, 0]));
-
+                    matIx[i, j] = (short)(imaAux.Data[i, j + 1, 0] - imaAux.Data[i, j, 0]);
                 }
-
             }
-            ctlIma.Source = ToBitmapSource(imaAux);
-            b = imaAux.Bitmap;
-            imaO.Bitmap = b;
 
-
+            for (int i = 0; i < imaAux.Height; i++)//recorre en vertical      
+            {
+                matIx[i, imaAux.Width - 1] = (short)(imaAux.Data[i, imaAux.Width - 1, 0]);
+            }
         }
 
 
         private void Iy()
         {
 
-
-            System.Drawing.Bitmap b;
-            b = imaO.Bitmap;
-            imaAux.Bitmap = b;
-
-
-            for (int i = (int)(mascara.GetLength(0) / 2); i < imaO.Height - (int)(mascara.GetLength(0) / 2)-1; i++)//recorre en vertical      
+            matIy = new short[imaAux.Height, imaAux.Width];
+            for (int i = 0; i < imaAux.Height - 1; i++)//recorre en vertical      
             {
-                for (int j = (int)(mascara.GetLength(1) / 2); j < imaO.Width - (int)(mascara.GetLength(1) / 2); j++)//recorre en horizontal
+                for (int j = 0; j < imaAux.Width; j++)//recorre en horizontal
                 {
-
-
-                    imaAux.Data[i, j, 0] = (byte)(Math.Abs(imaO.Data[i+1, j, 0] - imaO.Data[i, j, 0]));
-
+                    matIy[i, j] = (short)(imaAux.Data[i + 1, j, 0] - imaAux.Data[i, j, 0]);
                 }
-
             }
-            ctlIma.Source = ToBitmapSource(imaAux);
-            b = imaAux.Bitmap;
-            imaO.Bitmap = b;
 
-
+            for (int j = 0; j < imaAux.Width; j++)//recorre en horizontal
+            {
+                matIy[imaAux.Height - 1, j] = (short)(imaAux.Data[imaAux.Height - 1, j, 0]);
+            }
         }
 
 
-        private void Iu()
+        private void I()//el Gradiente
         {
 
-
-            System.Drawing.Bitmap b;
-            b = imaO.Bitmap;
-            imaAux.Bitmap = b;
-
-
-            for (int i = (int)(mascara.GetLength(0) / 2); i < imaO.Height - (int)(mascara.GetLength(0) / 2)-1; i++)//recorre en vertical      
+            for (int i = 0; i < imaAux.Height; i++)//recorre en vertical      
             {
-                for (int j = (int)(mascara.GetLength(1) / 2); j < imaO.Width - (int)(mascara.GetLength(1) / 2) - 1; j++)//recorre en horizontal
+                for (int j = 0; j < imaAux.Width; j++)//recorre en horizontal
+                {
+
+                    imaAux.Data[i, j, 0] = (byte)(Math.Abs(Math.Sqrt(Math.Pow(matIx[i, j], 2) + Math.Pow(matIy[i, j], 2))));
+                }
+            }
+
+            // ctlIma.Source = ToBitmapSource(imaAux);//el gradiente
+        }
+
+        private void Io()
+        {
+            matD = new short[imaAux.Height, imaAux.Width];
+
+            for (int i = 0; i < imaAux.Height; i++)//recorre en vertical      
+            {
+                for (int j = 0; j < imaAux.Width; j++)//recorre en horizontal
+                {
+                    if (matIx[i, j] != 0)
+                        matD[i, j] = (short)(Math.Tanh(matIy[i, j] / matIx[i, j]));
+                    else
+                        matD[i, j] = (short)(Math.Tanh(0));
+
+                }
+            }
+        }
+
+
+        private void discretisar() {
+
+            //discretizar matD
+            double vAux = 0;
+            for (int i = 0; i < matD.GetLength(0); i++)//recorre en vertical      
+            {
+                for (int j = 0; j < matD.GetLength(1); j++)//recorre en horizontal
                 {
 
 
-                    imaAux.Data[i, j, 0] = (byte)(Math.Abs(Math.Sqrt(Math.Pow(imaO.Data[i+1, j, 0] - imaO.Data[i, j, 0],2) + Math.Pow(imaO.Data[i, j + 1, 0] - imaO.Data[i, j, 0], 2))));
+                    if (matD[i, j] - 22.5 < 0) vAux = 360 - matD[i, j] - 22.5;
+                    else vAux = matD[i, j] - 22.5;
 
+                    if (vAux < 180) {
+                        if (vAux >= 0 && vAux < 45) vAux = 0;
+                        else if (vAux >= 45 && vAux < 90) vAux = 45;
+                        else if (vAux >= 90 && vAux < 135) vAux = 90;
+                        else vAux = 135;
+                    }
+                    else {
+                        if (vAux >= 180 && vAux < 225) vAux = 180;
+                        else if (vAux >= 225 && vAux < 270) vAux = 225;
+                        else if (vAux >= 270 && vAux < 315) vAux = 270;
+                        else vAux = 315;
+                    }
+
+                    matD[i, j] = (short)vAux;
+                }
+            }
+
+        }
+        private void comparacionVecinos()
+        {
+            System.Drawing.Bitmap b;
+            b = imaAux.Bitmap;
+            imaAux2.Bitmap = b;
+
+            //short[,] matAux = new short[matD.GetLength(0), matD.GetLength(1)];
+            for (int i = 1; i < matD.GetLength(0) - 1; i++)//recorre en vertical      
+            {
+                for (int j = 1; j < matD.GetLength(1) - 1; j++)//recorre en horizontal
+                {
+                    if (matD[i, j] == 0 || matD[i, j] == 180)
+                    {
+                        if (imaAux.Data[i, j, 0] > imaAux.Data[i, j + 1, 0] && imaAux.Data[i, j, 0] > imaAux.Data[i, j - 1, 0])
+                            imaAux2.Data[i, j, 0] = imaAux.Data[i, j, 0];
+                        else imaAux2.Data[i, j, 0] = 0;
+                    }
+
+                    else if (matD[i, j] == 90 || matD[i, j] == 270)
+                    {
+                        if (imaAux.Data[i, j, 0] > imaAux.Data[i + 1, j, 0] && imaAux.Data[i, j, 0] > imaAux.Data[i - 1, j, 0])
+                            imaAux2.Data[i, j, 0] = imaAux.Data[i, j, 0];
+                        else imaAux2.Data[i, j, 0] = 0;
+                    }
+                    else if (matD[i, j] == 135 || matD[i, j] == 312)
+                    {
+                        if (imaAux.Data[i, j, 0] > imaAux.Data[i - 1, j - 1, 0] && imaAux.Data[i, j, 0] > imaAux.Data[i + 1, j + 1, 0])
+                            imaAux2.Data[i, j, 0] = imaAux.Data[i, j, 0];
+                        else imaAux2.Data[i, j, 0] = 0;
+                    }
+
+                    else if (matD[i, j] == 45 || matD[i, j] == 225)
+                    {
+                        if (imaAux.Data[i, j, 0] > imaAux.Data[i - 1, j + 1, 0] && imaAux.Data[i, j, 0] > imaAux.Data[i + 1, j - 1, 0])
+                            imaAux2.Data[i, j, 0] = imaAux.Data[i, j, 0];
+                        else imaAux2.Data[i, j, 0] = 0;
+                    }
                 }
 
             }
-            ctlIma.Source = ToBitmapSource(imaAux);
-            b = imaAux.Bitmap;
-            imaO.Bitmap = b;
 
 
+            
         }
 
-    }
+        private void histeresiDUmbral()
+        {
+            
+            
+            for (int i = 1; i < matD.GetLength(0) - 1; i++)//recorre en vertical      
+            {
+                for (int j = 1; j < matD.GetLength(1) - 1; j++)//recorre en horizontal
+                {
+                    if (imaAux2.Data[i, j,0] > 5) imaAux2.Data[i, j, 0] = 0;
+                    else imaAux2.Data[i, j, 0] = 255;
+                }
+            }
+            ctlIma.Source = ToBitmapSource(imaAux2);
+        }
+            //end
+        }
+         
 }

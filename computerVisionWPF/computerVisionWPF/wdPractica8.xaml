@@ -31,7 +31,7 @@
                             
                             <Button x:Name="btnOriginal" Click="btnOriginal_Click"  Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Original" Background="#FF363636" BorderBrush="Black"/>
                             <Rectangle Height="5" Fill="#FF7592F3" Margin="10 6 10 3"/>
-                            <StackPanel>
+                            <!-- <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                 <Button x:Name="btnIx" Click="btnIx_Click"  Width="47" Height="40" VerticalAlignment="Center" Margin="10 3 3 3" Content="Ix" Background="#FF363636" BorderBrush="Black"/>
                                 <Button x:Name="btnIy" Click="btnIy_Click" Width="47" Height="40" VerticalAlignment="Center" Margin="3 3 5 3" Content="Iy" Background="#FF363636" BorderBrush="Black"/>
@@ -40,7 +40,7 @@
                                     <Button x:Name="btnIu" Click="btnIu_Click"  Width="47" Height="40" VerticalAlignment="Center" Margin="10 3 3 3" Content="Iu" Background="#FF363636" BorderBrush="Black"/>
                                     <Button x:Name="btnIo" Click="btnIo_Click"  Width="47" Height="40" VerticalAlignment="Center" Margin="3 3 5 3" Content="Io" Background="#FF363636" BorderBrush="Black"/>
                                 </StackPanel>
-                            </StackPanel>
+                            </StackPanel>-->
 
                             <Button x:Name="btnCanny" Click="btnCanny_Click"  Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Canny" Background="#FF363636" BorderBrush="Black"/>
                            
