@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="computerVisionWPF.wdPractica7"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:computerVisionWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid>
+                <Grid Background="WhiteSmoke">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="#FFBDBDBD" RenderingBias="Quality"/>
+                    </Grid.Effect>
+
+                    <Image x:Name="ctlIma"/>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel Margin="0">
+                           
+                            <Button x:Name="btnOpenImagen" Click="btnOpenImagen_Click" Width="100" Height="40" VerticalAlignment="Center" Margin="10 6 10 1"    Background="#FF363636" BorderBrush="Black" >
+                                <materialDesign:PackIcon Kind="Folder" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
+                            </Button>
+                            
+                            <Rectangle Height="5" Fill="#FF7592F3" Margin="10 6 10 3"/>
+                            <Button x:Name="btnOriginal" Click="btnOriginal_Click"  Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Original" Background="#FF363636" BorderBrush="Black"/>
+                            <Button x:Name="btnConvolucion" Click="btnConvolucion_Click"  Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Convolucion" Background="#FF363636" BorderBrush="Black" FontSize="12"/>
+                            <Rectangle Height="5" Fill="#FF7592F3" Margin="10 6 10 3"/>
+                            <ComboBox x:Name="cBox"  Width="100" Margin="10 3">
+                                <ComboBoxItem IsSelected="True">Prewitt Horizontal </ComboBoxItem>
+                                <ComboBoxItem>Prewitt Vertical</ComboBoxItem>
+                                <ComboBoxItem>Prewitt Diagonal</ComboBoxItem>
+                                <ComboBoxItem>Sobel Horizontal</ComboBoxItem>
+                                <ComboBoxItem>Sobel Vertical</ComboBoxItem>
+                                <ComboBoxItem>sobel Diagonal</ComboBoxItem>
+                            </ComboBox>
+                            
+                            <TextBox x:Name="txtH" materialDesign:HintAssist.Hint="Umbral" FontSize="15" Margin="10 3" TextAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            
+                            <Button x:Name="btnBordes" Click="btnBordes_Click" Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Bordes" Background="#FF363636" BorderBrush="Black"/>
+
+                        </StackPanel>
+                        
+
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </materialDesign:TransitioningContent>
+            
+    </Grid>
+</UserControl>

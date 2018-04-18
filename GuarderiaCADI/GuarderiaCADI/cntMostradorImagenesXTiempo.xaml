@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="GuarderiaCADI.cntMostradorImagenesXTiempo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:local="clr-namespace:GuarderiaCADI"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <UserControl.Resources>
+
+        <Storyboard x:Name="on" x:Key="on">
+            <DoubleAnimation Duration="00:00:0.6" From="1" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Ima" />
+
+        </Storyboard>
+
+        
+
+            
+
+        
+    </UserControl.Resources>
+    <Grid>
+        <Rectangle Fill="White" Margin="10" RadiusY="15" RadiusX="15">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="25" Color="#FFD6D5D5" RenderingBias="Quality" ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+       
+            <Grid x:Name="GridImagen" Height="270" Width="400" Margin="35">
+            <Rectangle  Fill="Gray">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="25" ShadowDepth="1" RenderingBias="Quality" Color="#FFF3EFEF"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+            <Image x:Name="ImaBack"  Source="FotosGuarderia/Gua0.jpeg" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Image x:Name="Ima"  Source="FotosGuarderia/Gua2.jpeg" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            
+        </Grid>
+        
+
+
+
+
+    </Grid>
+</UserControl>

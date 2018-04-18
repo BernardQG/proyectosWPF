@@ -1,0 +1,48 @@
+﻿<Window x:Class="iaViajeroWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:iaViajeroWPF"
+        mc:Ignorable="d"
+        Title="La aventura del Viajero" Height="720" Width="770" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Background="{x:Null}" Icon="travelerbag_23953.ico"  >
+    <Grid >
+        <Grid Margin="10">
+            
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" RenderingBias="Quality" ShadowDepth="1"/>
+            </Grid.Effect>
+            <Rectangle Fill="#FFF3EEEE" RadiusY="13" RadiusX="13"/>
+            <Rectangle Fill="#FF7FB9FF" Height="30" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30">
+                <materialDesign:PackIcon Kind="Bus" VerticalAlignment="Center" Foreground="WhiteSmoke" Width="23" Height="23" Margin="10 0"/>
+                <TextBlock Text="El Viajero" Foreground="WhiteSmoke" FontSize="20" VerticalAlignment="Center"/>
+            </StackPanel>
+            <TextBlock Text="por Bernardo Quintino Guzmán" Foreground="Gray" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10"/>
+            
+
+            <Button x:Name="close" Click="close_Click" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="10 5"   Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
+            
+                <materialDesign:PackIcon Kind="Power" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
+            </Button>
+
+            <Grid Width="600" Height="600" HorizontalAlignment="Left" Margin="25 50">
+                <Rectangle Fill="Gray"/>
+                <Canvas x:Name="canvas1" Background="#FFFBFBFB" Margin="1"/>
+            </Grid>
+            <Grid Width="120" HorizontalAlignment="Right">
+            <StackPanel Margin="7 50">
+
+                    <Button x:Name="reOdenar" Click="reOdenar_Click" Height="30" Margin="0" Content="Reodenar" FontSize="15" Background="#FF7FB9FF" BorderBrush="#FF7FB9FF"/>
+                    <TextBox x:Name="txtCantidadDCiurades" materialDesign:HintAssist.Hint="No. Ciudades [ 5 ]" Margin="0 3" TextAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>                    
+                    <TextBox x:Name="txtCiudadOrigen" materialDesign:HintAssist.Hint="Ciudad origen [ 1 ] " Margin="0 3" TextAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox x:Name="txtCiudadDestino" materialDesign:HintAssist.Hint="Ciudad meta [ 5 ] " Margin="0 3" TextAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    <Button x:Name="run" Click="run_Click" Height="30" Margin="0 3" Content="Primero Mejor" FontSize="11" Background="#FF7FB9FF" BorderBrush="#FF7FB9FF"/>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,44 @@
+﻿<Window x:Class="GuarderiaCADI.vntLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuarderiaCADI"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="500" Width="350" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFF0F0F0">
+        <Rectangle Height="250" VerticalAlignment="Top" x:Name="Rectangulo" MouseDown="Rectangulo_MouseDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF5B0D5F" Offset="1"/>
+                    <GradientStop Color="#FF921DF3"/>
+                    <GradientStop Color="#FF78249F" Offset="0.537"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Right"   Margin="7" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" x:Name="btnClose" Click="btnClose_Click">
+            <materialDesign:PackIcon Kind="Power"  Foreground="White" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        </Button>
+        <materialDesign:PackIcon Kind="AccountCircle"  Width="100" Height="100" Foreground="White"  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="45"/>
+
+        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,90" RadiusY="15.022" RadiusX="15.022">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <StackPanel Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,90">
+            <TextBlock Text="Iniciar Secíón" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" FontSize="20" Foreground="Gray"/>
+            <StackPanel HorizontalAlignment="Center" Margin="0,15" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,15,0,0" Foreground="#707070"/>
+                <TextBox materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" Margin="5" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Margin="0,15,0,0" Foreground="#707070"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="200" Margin="5" VerticalAlignment="Center"/>
+            </StackPanel>
+
+        </StackPanel>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Continuar" Width="150" Margin="0,75" FontSize="18" x:Name="btnContinuar" Click="btnContinuar_Click"/>
+    </Grid>
+</Window>

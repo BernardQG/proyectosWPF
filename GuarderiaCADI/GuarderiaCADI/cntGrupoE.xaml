@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="GuarderiaCADI.cntGrupoE"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:GuarderiaCADI"
+             mc:Ignorable="d" Height="auto" Width="auto">
+    <Grid>
+
+
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid Margin="10">
+                        <Rectangle Fill="White" Width="500" Height="700" RadiusY="15" RadiusX="15">
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="25" Color="#FFDCDADA" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                    </Grid>
+                    
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid Margin="10">
+                        <Rectangle Fill="White"  Height="200" VerticalAlignment="Top" RadiusY="15" RadiusX="15">
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="25" Color="#FFDCDADA" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+        </materialDesign:TransitioningContent>
+
+
+    </Grid>
+</UserControl>

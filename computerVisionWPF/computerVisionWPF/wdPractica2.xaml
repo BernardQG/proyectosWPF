@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="computerVisionWPF.wdPractica2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:computerVisionWPF"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="auto" Width="auto">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid>
+                
+                    <Grid >
+                        
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="25" Color="#FFBDBDBD" RenderingBias="Quality"/>
+                        </Grid.Effect>
+                    <Grid x:Name="gridIma"/>
+                </Grid>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
+                    <Button x:Name="OpenImagen" Click="OpenImagen_Click" Width="45" Height="45" VerticalAlignment="Center"    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Kind="Folder" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
+                    </Button>          
+                    
+                </StackPanel>
+            </Grid>
+        </materialDesign:TransitioningContent>
+
+    </Grid>
+</UserControl>

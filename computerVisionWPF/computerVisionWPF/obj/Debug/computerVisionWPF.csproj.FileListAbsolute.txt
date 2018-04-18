@@ -1,0 +1,124 @@
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\computerVisionWPF.exe.config
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\computerVisionWPF.exe
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\computerVisionWPF.pdb
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.GL.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.World.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.GLControl.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\ZedGraph.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.GL.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.World.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.GLControl.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\ZedGraph.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\de\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\es\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\fr\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\hu\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\it\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\ja\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\pt\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\ru\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\sk\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\sv\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\tr\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\zh-cn\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\zh-tw\ZedGraph.resources.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csprojResolveAssemblyReference.cache
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\App.g.cs
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF_MarkupCompile.cache
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF_MarkupCompile.lref
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.g.resources
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.Properties.Resources.resources
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.GenerateResource.Cache
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.exe
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.pdb
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdwExampleOne.g.cs
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdwExampleOne.baml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignColors.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignThemes.Wpf.dll
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignThemes.Wpf.pdb
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignThemes.Wpf.xml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdMain.g.cs
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\App.baml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdMain.baml
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica1.g.cs
+c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica1.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica2.g.cs
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica2.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica3.g.cs
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica3.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica4.g.cs
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica4.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica5.g.cs
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica5.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica6.g.cs
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica6.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica7.g.cs
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica7.baml
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CoreCompileInputs.cache
+C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CopyComplete
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\computerVisionWPF.exe.config
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\computerVisionWPF.exe
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\computerVisionWPF.pdb
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.GL.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.World.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignColors.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.GLControl.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\ZedGraph.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.UI.GL.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\Emgu.CV.World.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\OpenTK.GLControl.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\ZedGraph.xml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\de\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\es\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\fr\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\hu\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\it\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\ja\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\pt\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\ru\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\sk\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\sv\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\tr\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\bin\Debug\zh-tw\ZedGraph.resources.dll
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csprojResolveAssemblyReference.cache
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdMain.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica1.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica2.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica3.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica4.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica5.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica6.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica7.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdwExampleOne.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\App.g.cs
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF_MarkupCompile.cache
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF_MarkupCompile.lref
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\App.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdMain.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica1.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica2.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica3.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica4.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica5.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica6.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica7.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\wdwExampleOne.baml
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.g.resources
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.Properties.Resources.resources
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.GenerateResource.cache
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CoreCompileInputs.cache
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CopyComplete
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.exe
+D:\ProjectsCSharop2017\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.pdb
