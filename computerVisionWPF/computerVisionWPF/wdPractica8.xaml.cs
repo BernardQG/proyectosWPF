@@ -17,12 +17,13 @@ namespace computerVisionWPF
     public partial class wdPractica8 : UserControl
     {
 
-        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux2 = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\placa.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\placa.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux2 = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\placa.jpg").Convert<Gray, byte>();
         short[,] matIx;
         short[,] matIy;
         short[,] matD;//Guarda las direcciones
+        int divMat = 0;
 
 
         int[,] mascara;
@@ -30,7 +31,10 @@ namespace computerVisionWPF
         public wdPractica8()
         {
             InitializeComponent();
-            mascara = new int[,] { { 1, 4, 7, 4, 1 }, { 4, 16, 26, 16, 4 }, { 7, 26, 41, 26, 7 }, { 4, 16, 26, 16, 4 }, { 1, 4, 7, 4, 1 } };
+            //mascara = new int[,] { { 1, 4, 7, 4, 1 }, { 4, 16, 26, 16, 4 }, { 7, 26, 41, 26, 7 }, { 4, 16, 26, 16, 4 }, { 1, 4, 7, 4, 1 } };
+            //divMat = 273;
+            mascara = new int[,] { { 1, 2, 1 }, { 2, 4,2 }, {1, 2, 1}};
+            divMat = 16;
             def();
         }
         private void def() {
@@ -82,7 +86,7 @@ namespace computerVisionWPF
 
 
                         }
-                    imaAux.Data[i, j, 0] = (byte)Math.Abs(numerador / (273));
+                    imaAux.Data[i, j, 0] = (byte)Math.Abs(numerador / (divMat));
 
                 }
 
@@ -163,6 +167,13 @@ namespace computerVisionWPF
             {
                 matIx[i, imaAux.Width - 1] = (short)(imaAux.Data[i, imaAux.Width - 1, 0]);
             }
+
+            /*  for (int i = 0; i < imaAux.Height; i++)//recorre en vertical      
+              {
+                  for (int j = 0; j < imaAux.Width; j++)//recorre en horizontal
+                               imaAux.Data[i, j, 0] = (byte)matIx[i,j];
+              }
+              ctlIma.Source = ToBitmapSource(imaAux);//el gradiente*/
         }
 
 
@@ -182,6 +193,8 @@ namespace computerVisionWPF
             {
                 matIy[imaAux.Height - 1, j] = (short)(imaAux.Data[imaAux.Height - 1, j, 0]);
             }
+
+           
         }
 
 
@@ -197,7 +210,7 @@ namespace computerVisionWPF
                 }
             }
 
-            // ctlIma.Source = ToBitmapSource(imaAux);//el gradiente
+          //   ctlIma.Source = ToBitmapSource(imaAux);//el gradiente
         }
 
         private void Io()
@@ -215,6 +228,8 @@ namespace computerVisionWPF
 
                 }
             }
+
+          
         }
 
 
@@ -256,6 +271,7 @@ namespace computerVisionWPF
             imaAux2.Bitmap = b;
 
             //short[,] matAux = new short[matD.GetLength(0), matD.GetLength(1)];
+            
             for (int i = 1; i < matD.GetLength(0) - 1; i++)//recorre en vertical      
             {
                 for (int j = 1; j < matD.GetLength(1) - 1; j++)//recorre en horizontal
@@ -287,28 +303,58 @@ namespace computerVisionWPF
                         else imaAux2.Data[i, j, 0] = 0;
                     }
                 }
+                
 
             }
-
-
+            //ctlIma.Source = ToBitmapSource(imaAux2);
             
+
         }
 
         private void histeresiDUmbral()
         {
-            
-            
-            for (int i = 1; i < matD.GetLength(0) - 1; i++)//recorre en vertical      
+
+            Boolean bol = false;
+            int U1=20, U2=22;
+            for (int i = 1; i < matD.GetLength(0)-1; i++)//recorre en vertical      
             {
-                for (int j = 1; j < matD.GetLength(1) - 1; j++)//recorre en horizontal
+                for (int j = 1; j < matD.GetLength(1)-1; j++)//recorre en horizontal
                 {
-                    if (imaAux2.Data[i, j,0] > 5) imaAux2.Data[i, j, 0] = 0;
-                    else imaAux2.Data[i, j, 0] = 255;
+
+
+                    if (imaAux2.Data[i, j, 0] > U2)
+                    {
+                        imaAux2.Data[i, j, 0] = 0;
+                    }
+                    else if (imaAux2.Data[i, j, 0] > U1)
+                    {
+                        bol = false;
+                        for (int x = 0; x < mascara.GetLength(0); x++)
+                            for (int y = 0; y < mascara.GetLength(1); y++)
+                            {
+
+                                if (imaO.Data[i + x - (int)(mascara.GetLength(0) / 2), j + y - (int)(mascara.GetLength(1) / 2), 0] > U2)
+                                    bol = true;
+
+
+                            }
+                        if (bol) imaAux2.Data[i, j, 0] = 0;
+                        else imaAux2.Data[i, j, 0] = 255;
+                    }
+                    else
+                    {
+                        imaAux2.Data[i, j, 0] = 255;
+                    }
+                    
+                    
+                    
                 }
             }
             ctlIma.Source = ToBitmapSource(imaAux2);
         }
-            //end
-        }
+
+       
+        //end
+    }
          
 }
