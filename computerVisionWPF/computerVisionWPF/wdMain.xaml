@@ -27,30 +27,33 @@
                 
                 <Image Margin="30 10"   VerticalAlignment="Top" HorizontalAlignment="Center" Source="Resources/Image/1f441.png"/>
 
-                <ListView x:Name="listP" SelectedIndex="1" FontSize="35" Margin="0 200 0 0" FontFamily="/computerVisionWPF;component/Resources/#Champagne &amp; Limousines">
-                        <ListViewItem Height="55"   Width="230"  >
-                            <TextBlock Text="Pruebas"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                <ListView x:Name="listP" SelectedIndex="1" FontSize="35" Margin="0 200 0 50" FontFamily="/computerVisionWPF;component/Resources/#Champagne &amp; Limousines">
+                        <ListViewItem Height="55"   >
+                            <TextBlock Text="Pruebas"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
                         </ListViewItem>
-                        <ListViewItem Height="55"  Width="230">
-                        <TextBlock Text="Practica 1"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                        <ListViewItem Height="55"  >
+                        <TextBlock Text="Practica 1"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0"  />
                     </ListViewItem>
-                    <ListViewItem Height="55"  Width="230">
-                        <TextBlock Text="Practica 2"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                    <ListViewItem Height="55"  >
+                        <TextBlock Text="Practica 2"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
                     </ListViewItem>
-                    <ListViewItem Height="55"  Width="230">
-                    <TextBlock Text="Practica 3"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                    <ListViewItem Height="55"  >
+                        <TextBlock Text="Practica 3"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
                     </ListViewItem>                    
-                    <ListViewItem Height="55"  Width="230">
-                        <TextBlock Text="Practica 4"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                    <ListViewItem Height="55"  >
+                        <TextBlock Text="Practica 4"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
                     </ListViewItem>
-                    <ListViewItem Height="55"  Width="230">
-                        <TextBlock Text="Practica 5"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                    <ListViewItem Height="55"  >
+                        <TextBlock Text="Practica 5"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
                     </ListViewItem>
-                    <ListViewItem Height="55"  Width="230">
-                        <TextBlock Text="Practica 6"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                    <ListViewItem Height="55"  >
+                        <TextBlock Text="Practica 6"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
                     </ListViewItem>
-                    <ListViewItem Height="55"  Width="230">
-                        <TextBlock Text="Practica 7"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40 0"/>
+                    <ListViewItem Height="55">
+                        <TextBlock Text="Practica 7"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0" />
+                    </ListViewItem>
+                    <ListViewItem Height="55" >
+                        <TextBlock Text="Practica 8"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0"  />
                     </ListViewItem>
 
 

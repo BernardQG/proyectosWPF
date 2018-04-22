@@ -26,7 +26,7 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica2 : UserControl
     {
-        private Image<Bgr, byte> imaC = new Image<Bgr, byte>(@"C:\Users\WQuintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\Resources\Image\abeja2.gif"); //lee la imagen por default a color       
+        private Image<Bgr, byte> imaC = new Image<Bgr, byte>(Environment.CurrentDirectory + @"\Imagenes\lena.jpg"); //lee la imagen por default a color       
         private Image<Gray, byte> imaG; //sirve para guardar la vercion a escala de grises de la imagen a color
         private Image ImaO = new Image();// Un componente grafico tipo imagen
         public wdPractica2()
