@@ -64,6 +64,9 @@ namespace computerVisionWPF
                 case 8:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica8()); break;
+                case 9:
+                    gridMain.Children.Clear();
+                    gridMain.Children.Add(new wdPractica9()); break;
 
 
 

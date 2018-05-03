@@ -55,6 +55,9 @@
                     <ListViewItem Height="55" >
                         <TextBlock Text="Practica 8"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0"  />
                     </ListViewItem>
+                    <ListViewItem Height="55" >
+                        <TextBlock Text="Practica 9"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 0"  />
+                    </ListViewItem>
 
 
                 </ListView>
