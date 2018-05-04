@@ -335,7 +335,7 @@ namespace computerVisionWPF
                   
                 }
             }
-            for(int m =0;m<100;m++)
+            for(int m =0;m<3;m++)
             UmbralEntreU1y2(U1, U2);
 
 
@@ -369,6 +369,11 @@ namespace computerVisionWPF
             
 
 
+        }
+
+        private void btnSaveImagen_Click(object sender, RoutedEventArgs e)
+        {
+            imaAux2.Save(Environment.CurrentDirectory + @"\Imagenes\Canny.jpg");
         }
 
 

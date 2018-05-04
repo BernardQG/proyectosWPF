@@ -28,11 +28,15 @@
                                 <materialDesign:PackIcon Kind="Folder" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
                             </Button>
                             <Button x:Name="btnOriginal" Click="btnOriginal_Click"  Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Original" Background="#FF363636" BorderBrush="Black"/>
-                            <Rectangle Height="5" Fill="#FF7592F3" Margin="10 6 10 3"/>                           
+                            <Rectangle Height="5" Fill="#FF7592F3" Margin="10 6 10 3"/>
+                            <TextBox x:Name="txtL" materialDesign:HintAssist.Hint="No. lineas [1]" FontSize="15" Margin="10 3" TextAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             <Button x:Name="btnRectas"  Click="btnRectas_Click" Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Rectas" Background="#FF363636" BorderBrush="Black"/>
 
                         </StackPanel>
-
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
+                            <TextBlock Text="Proceso: " FontSize="15" Foreground="Gray" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="txtP" Text="XX" FontSize="18" Foreground="Gray" VerticalAlignment="Center"/>
+                        </StackPanel>
 
                     </Grid>
 

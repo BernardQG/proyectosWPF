@@ -44,6 +44,9 @@
                             </StackPanel>-->
 
                             <Button x:Name="btnCanny" Click="btnCanny_Click"  Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Canny" Background="#FF363636" BorderBrush="Black"/>
+                            <Button x:Name="btnSaveImagen" Click="btnSaveImagen_Click" Width="100" Height="40" VerticalAlignment="Center" Margin="10 6 10 6"    Background="#FF363636" BorderBrush="Black" >
+                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
+                            </Button>
                            
 
                         </StackPanel>
