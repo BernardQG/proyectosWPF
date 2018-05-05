@@ -29,51 +29,16 @@ namespace computerVisionWPF
         Image<Rgb, byte> ima = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rec.jpg");
         Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rec.jpg").Convert<Gray, byte>();
         Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rec.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> Grafica;
 
 
-        BackgroundWorker bwObj = new BackgroundWorker();
+
 
         public wdPractica9()
         {
             InitializeComponent();
-            bwObj.DoWork += new DoWorkEventHandler(bwObj_DoWork);
-            bwObj.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
-            bwObj.ProgressChanged += new ProgressChangedEventHandler(bw_ProcessC);
-            bwObj.WorkerReportsProgress = true;
-            def();
-        }
-        private void def()
-        {
 
             ctlIma.Source = ToBitmapSource(imaO);
-
-
-        }
-        private void bw_ProcessC(object sender, ProgressChangedEventArgs e)
-        {
-            int n = e.ProgressPercentage * 100 / (imaO.Height);
-            txtP.Text = n.ToString() + '%';
-        }
-
-        private void bwObj_DoWork(object sender, DoWorkEventArgs e)
-        {
-            acumulador();
-        }
-        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (!(e.Error == null))
-                MessageBox.Show("Error: " + e.Error.Message);
-            else
-            {
-                ctlIma.Source = ToBitmapSource(imaAux);
-                
-               MessageBox.Show("Hecho");
-
-            }
-
-
-        }
+        }    
 
         [DllImport("gdi32")]
         private static extern int DeleteObject(IntPtr o);
@@ -95,7 +60,7 @@ namespace computerVisionWPF
             }
         }
 
-
+        //Abrir la imagen
         private void btnOpenImagen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileIma = new OpenFileDialog();
@@ -103,57 +68,50 @@ namespace computerVisionWPF
             {
                 imaO = null;
                 imaO = new Image<Rgb, byte>(fileIma.FileName).Convert<Gray, byte>();
-                def();
+                ctlIma.Source = ToBitmapSource(imaO);
             }
 
         }
 
 
         private void btnOriginal_Click(object sender, RoutedEventArgs e)
-        {
-            def();
-
+        {            ctlIma.Source = ToBitmapSource(imaO);
         }
-        int ln;
+
+        int ln;//Numero de lines que quiere que se vea
         private void btnRectas_Click(object sender, RoutedEventArgs e)
         {
             
             if (txtL.Text == string.Empty) ln = 1;
             else ln = Int32.Parse(txtL.Text);
 
-            if (bwObj.IsBusy != true)
-            {
-                bwObj.RunWorkerAsync();
-            }
+            tHugh();
+            ctlIma.Source = ToBitmapSource(imaAux);
         }
 
         public int[,] acm;
-        private void acumulador()
+        private void tHugh()
         {
 
-            // Max = Math.Sqrt(Math.Pow(imaO.Width, 2) + Math.Pow(imaO.Height, 2));           
+                  
             int rho_value, theta_value = 180;
-            // int numP=0;//Numero de puntos para que se considere linea
-
             System.Drawing.Bitmap b = imaO.Bitmap;
             imaAux.Bitmap = b;
 
 
-            acm = new int[(int)(Math.Abs(Math.Sqrt(Math.Pow(imaO.Width, 2) + Math.Pow(imaO.Height, 2)))), theta_value];//Mascara
-                                                                                                                       //int [] moda = new int[acm.GetLength(0)*acm.GetLength(1)];//Acumulador general
-
+            acm = new int[(int)(Math.Abs(Math.Sqrt(Math.Pow(imaO.Width, 2) + Math.Pow(imaO.Height, 2)))), theta_value];
 
             for (int i = 0; i < acm.GetLength(0); i++)
                 for (int j = 0; j < acm.GetLength(1); j++)
                     acm[i, j] = 0;
 
-            // realizar transformacion lineal para cada pixel 
-
+            
+            //Acumulador
             for (int i = 0; i < imaO.Height; i++)
             {
                 for (int j = 0; j < imaO.Width; j++)
                 {
-                    // iterar para todo el rango de angulos 
+                   
                     if (imaO.Data[i, j, 0] > 0)
                         for (int t = 0; t < theta_value; t++)
                         {
@@ -163,52 +121,29 @@ namespace computerVisionWPF
                         }
                 }
             }
-            //-------------------------
+            //-------------------------         
 
-            //Grafica = new Image<Gray, byte>(acm.GetLength(1), acm.GetLength(0));
-
-            /*
-           for (int i = 0; i < acm.GetLength(0); i++)
-                for (int j = 0; j < acm.GetLength(1); j++)
-                {
-                    
-                    if (acm[i, j] > 0)
-                    {
-                        Grafica.Data[i, j, 0] = 255;                                            
-                    }
-                    else
-                        Grafica.Data[i, j, 0] = 0;
-                }
-            medio=(int)arrAux.Max();*/
-            //  CvInvoke.Imshow("Grafica", Grafica);
-            //MessageBox.Show("Medio:"+medio.ToString());
-
-            //-------------------------
-
-            
-
-
-
-
+            //dibujar rectas
             for (int l = 0; l < ln; l++)
             {
                 lineasBuenas();
                 for (int i = 0; i < imaO.Height; i++)
-                {
-                    for (int j = 0; j < imaO.Width; j++)
-                    {
+                { 
 
-                        int y = (int)(Math.Round((rho - j * Math.Cos((Math.PI / 180) * theha)) / Math.Sin((Math.PI / 180) * theha)));
-                        if (y == i)
-                            imaAux.Data[i, j, 0] = 255;
+                    int x = (int)(Math.Round((rho - i * Math.Sin((Math.PI / 180) * theha)) / Math.Cos((Math.PI / 180) * theha)));
+                    if (x >= 0 && x<imaO.Width)
+                        imaAux.Data[i, x, 0] = 255;
 
-                        int x = (int)(Math.Round((rho - i * Math.Sin((Math.PI / 180) * theha)) / Math.Cos((Math.PI / 180) * theha)));
-                        if (x == j)
-                            imaAux.Data[i, j, 0] = 255;
-                    }
 
                 }
-                bwObj.ReportProgress(l);
+
+                for (int j = 0; j < imaO.Width; j++)
+                {
+                    int y = (int)(Math.Round((rho - j * Math.Cos((Math.PI / 180) * theha)) / Math.Sin((Math.PI / 180) * theha)));
+                    if (y >= 0 && y < imaO.Height)
+                        imaAux.Data[y, j, 0] = 255;
+                }
+                    
             }
               
          
@@ -219,7 +154,7 @@ namespace computerVisionWPF
         private void lineasBuenas()
         {
             int max=0;
-            int[] arrAux = new int[imaO.Width * imaO.Height];//Acumulador general
+            int[] arrAux = new int[imaO.Width * imaO.Height];
             int k = 0;
             for (int i = 0; i < acm.GetLength(0); i++)
                 for (int j = 0; j < acm.GetLength(1); j++)
