@@ -35,39 +35,48 @@ namespace computerVisionWPF
 
             switch (idx)
             {
+                
                 case 0:
-                    wdwExampleOne vtnOne = new wdwExampleOne();
-                    vtnOne.Show();
-                                       
-                    break;
-                case 1:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica1()); break;
-                case 2:
+                case 1:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica2()); break;
-                case 3:
+                case 2:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica3()); break;
-                case 4:
+                case 3:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica4()); break;
-                case 5:
+                case 4:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica5()); break;
-                case 6:
+                case 5:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica6()); break;
-                case 7:
+                case 6:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica7()); break;
-                case 8:
+                case 7:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica8()); break;
-                case 9:
+                case 8:
                     gridMain.Children.Clear();
                     gridMain.Children.Add(new wdPractica9()); break;
+                case 9:
+                    gridMain.Children.Clear();
+                    gridMain.Children.Add(new wdPractica10()); break;
+                case 10:
+                    gridMain.Children.Clear();
+                    //gridMain.Children.Add(new wdPractica10()); 
+                    MessageBox.Show("Aun no hecho");
+                    break;
 
+                case 11:
+                    wdwExampleOne vtnOne = new wdwExampleOne();
+                    vtnOne.Show();
+
+                    break;
 
 
                 default:
