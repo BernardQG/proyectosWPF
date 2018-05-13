@@ -24,7 +24,7 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica5 : UserControl
     {
-        Image<Rgb, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg");
+        Image<Rgb, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P5\Coins.jpg");
         Image<Gray, byte> imaAux;
         Image<Gray, byte> ima;
         

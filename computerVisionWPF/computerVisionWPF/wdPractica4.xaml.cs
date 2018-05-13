@@ -30,7 +30,7 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica4 : UserControl
     {
-        Image<Rgb, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rice.png");
+        Image<Rgb, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P4\rice.png");
         Image<Gray, byte> ima;
         Boolean unaUOtra = false;       
       

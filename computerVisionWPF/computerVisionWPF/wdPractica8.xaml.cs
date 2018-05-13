@@ -23,9 +23,9 @@ namespace computerVisionWPF
     public partial class wdPractica8 : UserControl
     {
 
-        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\placa.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\placa.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux2 = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\placa.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P8\placa.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P8\placa.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux2 = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P8\placa.jpg").Convert<Gray, byte>();
         int[,] matIx;
         int[,] matIy;
         float[,] matD;//Guarda las direcciones

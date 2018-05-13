@@ -27,7 +27,7 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica3 : UserControl
     {
-        private Image<Bgr, byte> imaO = new Image<Bgr, byte>(Environment.CurrentDirectory+ @"\im.jpg"); //lee la imagen por default a color       
+        private Image<Bgr, byte> imaO = new Image<Bgr, byte>(Environment.CurrentDirectory+ @"\Imagenes\P3\im.jpg"); //lee la imagen por default a color       
         private Image<Gray, byte> Ima;//para metodo 1
         private Image<Gray, byte> Ima_2;//metodo 2
         public wdPractica3()

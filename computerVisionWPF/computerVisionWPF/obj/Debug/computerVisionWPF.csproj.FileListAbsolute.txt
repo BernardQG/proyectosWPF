@@ -252,3 +252,5 @@ Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.
 Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.GenerateResource.cache
 Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CoreCompileInputs.cache
 Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CopyComplete
+Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica10.g.cs
+Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica10.baml
