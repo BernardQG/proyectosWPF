@@ -72,7 +72,7 @@ namespace computerVisionWPF
             //imaO.Source = ToBitmapSource(ima);
             //Image<Gray, byte> gambarAbu = ima.Convert<Gray, byte>();
             //imaG.Source = ToBitmapSource(gambarAbu);
-            gambar = new Image<Rgb, byte>(@"c:\users\wquintino\documents\visual studio 2017\Projects\computerVisionWPF\computerVisionWPF\Resources\Image\ima1.jpg");
+            gambar = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ima1.jpg");
             imaO.Source = ToBitmapSource(gambar);
             Image < Gray, byte> gambarAbu = gambar.Convert<Gray, byte>();
             imaG.Source = ToBitmapSource(gambarAbu);

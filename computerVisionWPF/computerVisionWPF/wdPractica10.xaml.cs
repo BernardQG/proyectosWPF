@@ -25,14 +25,14 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica10 : UserControl
     {
-        Image<Rgb, byte> ima = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\lena.jpg");
-        Image<Gray, byte> imaO, imaEnergy;
+        Image<Rgb, byte> ima = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P10\Imagen1.png");
+        Image<Gray, byte> imaO, imaMean, imaVariance, imaEnergy, imaCorrelation,  imaEntropy, imaContrast, imaHomogeneity;
 
         BackgroundWorker bgw = new BackgroundWorker();
 
         public wdPractica10()
         {
-            
+
             InitializeComponent();
             imaO = new Image<Gray, byte>(ima.Convert<Gray, byte>().Bitmap);
             ctlIma.Source = ToBitmapSource(imaO);
@@ -52,11 +52,17 @@ namespace computerVisionWPF
 
         private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(!(e.Error == null))
+            if (!(e.Error == null))
                 MessageBox.Show("Error: " + e.Error.Message);
             else
             {
-                CvInvoke.Imshow("Energy", imaEnergy);//Imagen Energia
+                CvInvoke.Imshow("Mean", imaMean);
+                CvInvoke.Imshow("Variance", imaVariance);
+                CvInvoke.Imshow("Energy", imaEnergy);                
+                CvInvoke.Imshow("Correlation", imaCorrelation);
+                CvInvoke.Imshow("Entropy", imaEntropy);
+                CvInvoke.Imshow("Contrast", imaContrast);
+                CvInvoke.Imshow("Homogeneity", imaHomogeneity);//Imagen Homogenuidad
                 txtP.Text = "100" + '%';
 
             }
@@ -70,6 +76,7 @@ namespace computerVisionWPF
         #region "Fuciones Basicas"
         private void btnOpenImagen_Click(object sender, RoutedEventArgs e)
         {
+            txtP.Text = "0" + '%';
             OpenFileDialog fileIma = new OpenFileDialog();
             if (fileIma.ShowDialog() == true)
             {
@@ -78,11 +85,11 @@ namespace computerVisionWPF
                 ctlIma.Source = ToBitmapSource(imaO);
             }
         }
-
+        /*
         private void btnOriginal_Click(object sender, RoutedEventArgs e)
         {
             ctlIma.Source = ToBitmapSource(imaO);
-        }
+        }*/
         [DllImport("gdi32")]
         private static extern int DeleteObject(IntPtr o);
         public static BitmapSource ToBitmapSource(IImage image)//un metodo que requiere el emgucv
@@ -107,40 +114,49 @@ namespace computerVisionWPF
         public int tam;//Es es tamaño de la nueva imagen integral
         double[] arrPs = new double[511]; //Ps
         double[] arrPd = new double[511]; //Pd
-        double energy;
+
         public void textureAnalysis()
         {
-
-            imaEnergy = new Image<Gray, byte>(imaO.Width, imaO.Height);
+            imaMean = new Image<Gray, byte>(imaO.Width, imaO.Height);
+            imaVariance = new Image<Gray, byte>(imaO.Width, imaO.Height);
+            imaEnergy = new Image<Gray, byte>(imaO.Width, imaO.Height);            
+            imaCorrelation = new Image<Gray, byte>(imaO.Width, imaO.Height);
+            imaEntropy = new Image<Gray, byte>(imaO.Width, imaO.Height);
+            imaContrast = new Image<Gray, byte>(imaO.Width, imaO.Height);
+            imaHomogeneity = new Image<Gray, byte>(imaO.Width, imaO.Height);
             //Estableciendo el tamaño de la imagen integral
             tam = (int)(imaO.Width * 0.1);
             if (tam % 2 == 0) tam++;
-            
+
+            tam = 15;
+            int N = tam * tam;
+
             for (int h = 0; h < imaO.Height; h++)
             {
                 for (int w = 0; w < imaO.Width; w++)
                 {
-                    imagenIntegral(w, h);
-                    imaEnergy.Data[h, w, 0] = (byte)(energy * 255);
+                    imagenIntegral(w, h, N);
+
                 }
                 bgw.ReportProgress(h);
-            }
-
-            
-            //ctlIma.Source = ToBitmapSource(imaEnergy);
-
+            }          
         }
 
+    
 
-
-        public void imagenIntegral(int x, int y)//Representación intermedia de la imagen
+        public void imagenIntegral(int x, int y, int N)//Representación intermedia de la imagen
         {
                       
             histogramaSumasYRestas(x, y);//Metodo
               
                         
             double sumPs = 0, sumPd = 0;
-            double nPs = 0, nPd = 0; 
+            double nPs = 0, nPd = 0;//N para cada histograma
+            double sumU = 0;//Media                        
+            double sumEPs = 0, sumEPd = 0;//Entropy
+            double sumC = 0;//Contrast
+            double sumH = 0;//Caracteristica Homogeneity
+
 
             for (int i = 0; i <= 510; i++)
             {
@@ -151,34 +167,52 @@ namespace computerVisionWPF
             for (int i = 0; i <=510; i++)
             {
                 //Normalización
-                arrPs[i] = arrPs[i] / nPs;
-                arrPd[i] = arrPd[i] / nPd;
-                //energy feature
-                sumPs += arrPs[i] * arrPs[i];
-                sumPd += arrPd[i] * arrPd[i];
+                arrPs[i] =  (arrPs[i] / nPs);
+                arrPd[i] = (arrPd[i] / nPd);
 
-                
+                //Media/Mean
+                sumU += i * arrPs[i];                
+                //energy feature              
+                sumPs += arrPs[i]* arrPs[i];
+                sumPd += arrPd[i]* arrPd[i];
+                //Entropy
+                if (arrPs[i] != 0)                
+                    sumEPs += arrPs[i] * Math.Log10(arrPs[i]);
+                if (arrPd[i] != 0)
+                    sumEPd += arrPd[i] * Math.Log10(arrPd[i]);               
 
+                //Contrast
+                sumC += (i-255)*(i-255) * arrPd[i];
+                //Homogeneity feature
+                sumH +=(1 / (1+(i-255)*(i-255))) * arrPd[i];
             }
-            energy = sumPs * sumPd;
-            
-        }
-
-        private void btnFeactures_Click(object sender, RoutedEventArgs e)
-        {
-            if (bgw.IsBusy != true)
+            sumU = sumU / 2;
+            double sumVyRPs = 0, sumVyRPd=0; //Variance y Correlation            
+            for (int i = 0; i <= 510; i++)
             {
-                bgw.RunWorkerAsync();
+                //Variance y Correlation
+                sumVyRPs += Math.Pow((i - 2 * sumU), 2) * arrPs[i];
+                sumVyRPd += Math.Pow(i - 255, 2) * arrPd[i];
             }
 
+            imaMean.Data[y, x, 0] = (byte)(sumU);
+            imaVariance.Data[y, x, 0] = (byte)(((sumVyRPs + sumVyRPd) /2)/255);
+            imaCorrelation.Data[y, x, 0] = (byte)(((sumVyRPs - sumVyRPd) / 2) / 255);
+            imaEnergy.Data[y, x, 0] = (byte)((sumPs * sumPd) * (Math.Log10(510*2)) *255);            
+            imaEntropy.Data[y, x, 0] = (byte)(((-sumEPs-sumEPd)/ Math.Log10(nPd*nPs)) *255);
+            imaContrast.Data[y, x, 0] = (byte)(sumC/255);
+            imaHomogeneity.Data[y, x, 0] = (byte)(sumH*255);
+            
+
         }
+
 
         public void histogramaSumasYRestas(int x, int y)
         {
             arrPs.DefaultIfEmpty(); //Ps
             arrPd.DefaultIfEmpty(); //Pd
-            for (int i = y - (int)tam / 2; i < y + (int)tam / 2; i++)
-                for (int j = x - (int)tam / 2; j < y + (int)tam / 2; j++)
+            for (int i = y - (int)tam / 2; i <= y + (int)tam / 2; i++)
+                for (int j = x - (int)tam / 2; j <= x + (int)tam / 2; j++)
                 {
 
 
@@ -205,7 +239,15 @@ namespace computerVisionWPF
                 }
 
         }
+        private void btnFeactures_Click(object sender, RoutedEventArgs e)
+        {
+            if (bgw.IsBusy != true)
+            {
+                bgw.RunWorkerAsync();
+            }
 
-        
+        }
+
+
     }
 }

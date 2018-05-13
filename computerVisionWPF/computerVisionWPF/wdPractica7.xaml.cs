@@ -27,8 +27,8 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica7 : UserControl
     {
-        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Coins.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P7\Coins.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P7\Coins.jpg").Convert<Gray, byte>();
 
         int[,] mascara;
         int n=5;//Es el tamaño de la mascara de la comvolucion simple

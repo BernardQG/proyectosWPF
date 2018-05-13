@@ -26,9 +26,9 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdPractica9 : UserControl
     {
-        Image<Rgb, byte> ima = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rec.jpg");
-        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rec.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\rec.jpg").Convert<Gray, byte>();
+        Image<Rgb, byte> ima = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P9\rec.jpg");
+        Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P9\rec.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P9\rec.jpg").Convert<Gray, byte>();
 
 
 

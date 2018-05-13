@@ -33,7 +33,7 @@ namespace computerVisionWPF
         //Image<Gray, byte> imaW = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\Wally.jpg").Convert<Gray,byte>();
         Image<Gray, byte> imaO = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P6\1E.jpg").Convert<Gray, byte>();
         Image<Gray, byte> imaW = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\P6\1O.jpg").Convert<Gray, byte>();
-        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\p6\1e.jpg").Convert<Gray, byte>();
+        Image<Gray, byte> imaAux = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\p6\1E.jpg").Convert<Gray, byte>();
 
         BackgroundWorker bwObj = new BackgroundWorker();
         Boolean b = true;
