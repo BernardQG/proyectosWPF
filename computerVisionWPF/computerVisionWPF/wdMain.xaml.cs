@@ -25,6 +25,7 @@ namespace computerVisionWPF
             listP.SelectionChanged += new SelectionChangedEventHandler(listChange);
             gridMain.Children.Clear();
             gridMain.Children.Add(new wdPractica1());
+            maxNormal = true;
         }
 
         private void listChange(object sender, SelectionChangedEventArgs e)
@@ -68,8 +69,8 @@ namespace computerVisionWPF
                     gridMain.Children.Add(new wdPractica10()); break;
                 case 10:
                     gridMain.Children.Clear();
-                    //gridMain.Children.Add(new wdPractica10()); 
-                    MessageBox.Show("Aun no hecho");
+                    gridMain.Children.Add(new wdProyectoFinal()); 
+                    //MessageBox.Show("Aun no hecho");
                     break;
 
                 case 11:
@@ -84,9 +85,31 @@ namespace computerVisionWPF
             }
         }
 
-        
 
+        /*
         private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        */
+        private Boolean maxNormal;
+        private void Barra_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void btnMini_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnMaxi_Click(object sender, RoutedEventArgs e)
+        {
+            if (maxNormal) { this.WindowState = WindowState.Maximized; maxNormal = false; }
+            else { this.WindowState = WindowState.Normal; maxNormal = true; }
+        }
+
+        private void btnPower_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }

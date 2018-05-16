@@ -132,6 +132,9 @@
     <Compile Include="wdPractica9.xaml.cs">
       <DependentUpon>wdPractica9.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wdProyectoFinal.xaml.cs">
+      <DependentUpon>wdProyectoFinal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wdwExampleOne.xaml.cs">
       <DependentUpon>wdwExampleOne.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wdPractica9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wdProyectoFinal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

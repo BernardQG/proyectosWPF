@@ -6,25 +6,32 @@
              xmlns:local="clr-namespace:computerVisionWPF"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Height="auto" Width="auto">
+              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
             <Grid>
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txtName" Text="Efecto de una Lámpara" FontSize="25" Foreground="#FF494949"  HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0 0 15 5"/>
+                <Grid Grid.Row="1">
+
                     <Grid >
-                        
+
                         <Grid.Effect>
                             <DropShadowEffect BlurRadius="25" Color="#FFBDBDBD" RenderingBias="Quality"/>
                         </Grid.Effect>
-                    <Grid x:Name="gridIma"/>
-                </Grid>
+                        <Grid x:Name="gridIma" />
+                    </Grid>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
-                    <Button x:Name="OpenImagen" Click="OpenImagen_Click" Width="45" Height="45" VerticalAlignment="Center"    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <materialDesign:PackIcon Kind="Folder" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
-                    </Button>          
-                    
-                </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
+                        <Button x:Name="OpenImagen" Click="OpenImagen_Click" Width="45" Height="45" VerticalAlignment="Center"    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="Folder" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
+                        </Button>
+
+                    </StackPanel>
+                </Grid>
             </Grid>
         </materialDesign:TransitioningContent>
 

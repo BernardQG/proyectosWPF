@@ -6,21 +6,32 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:computerVisionWPF"
         mc:Ignorable="d"
-        Title="wdMain" Height="710" Width="1034" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="Resources/iconoBest.png" AllowsTransparency="True" Background="Transparent">
+        Title="wdMain" Height="720" Width="1054" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="Resources/iconoBest.png" AllowsTransparency="True" Background="Transparent">
     <Grid>
-        <Grid Margin="10">
+        <Grid Margin="5">
             <Grid.Effect>
-                <DropShadowEffect BlurRadius="20" RenderingBias="Quality" ShadowDepth="1"/>
+                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" ShadowDepth="1"/>
             </Grid.Effect>
 
             <Grid Background="#FFECF3F5" Margin="230,0,0,0">
-                <Rectangle Fill="#FF7592F3" Height="10" VerticalAlignment="Top"/>
-                <Button x:Name="btnClose" Click="btnClose_Click" Width="30" Height="30" Margin="20"  HorizontalAlignment="Right" VerticalAlignment="Top"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Rectangle x:Name="Barra" MouseDown="Barra_MouseDown"  Fill="#FF7592F3" Height="10" VerticalAlignment="Top" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="15">
+                    <Button x:Name="btnMini" Click="btnMini_Click" VerticalAlignment="Center" Width="25" Height="25"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="5 0">
+                        <materialDesign:PackIcon Kind="WindowMinimize" Width="15" Height="15"  Foreground="#FF535252" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="btnMaxi" Click="btnMaxi_Click" VerticalAlignment="Center" Width="25" Height="25"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="5 0">
+                        <materialDesign:PackIcon Kind="WindowMaximize" Width="15" Height="15"  Foreground="#FF535252" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button x:Name="btnPower" Click="btnPower_Click" VerticalAlignment="Center" Width="25" Height="25"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="5 0">
+                        <materialDesign:PackIcon Kind="Power" Width="15" Height="15"  Foreground="#FF535252" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+                <!--<Button x:Name="btnClose" Click="btnClose_Click" Width="30" Height="30" Margin="20"  HorizontalAlignment="Right" VerticalAlignment="Top"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
                     <materialDesign:PackIcon Kind="Power" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkGray"/>
-                </Button>
+                </Button>-->
                 <TextBlock Text="Visión por computadora" Margin="0 30 0 0" FontSize="35" Foreground="#FF8D8D8D"  VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="/computerVisionWPF;component/Resources/#Champagne &amp; Limousines"/>
-                <Grid Margin="20 80 20 30">
-                    <Grid x:Name="gridMain"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20"/>
+                <Grid Margin="20 80 20 45">
+                    <Grid x:Name="gridMain"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0"/>
                 </Grid>
                 <TextBlock Text="por Bernardo Quintino Guzmán" Margin="0 6" FontSize="22" Foreground="#FF7C7C7C"  VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="/computerVisionWPF;component/Resources/#Champagne &amp; Limousines"/>
 

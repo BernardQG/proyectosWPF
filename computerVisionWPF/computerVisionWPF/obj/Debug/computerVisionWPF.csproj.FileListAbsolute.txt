@@ -254,3 +254,5 @@ Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.
 Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\computerVisionWPF.csproj.CopyComplete
 Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica10.g.cs
 Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\wdPractica10.baml
+Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\wdProyectoFinal.g.cs
+Z:\proyectosWPF\computerVisionWPF\computerVisionWPF\obj\Debug\wdProyectoFinal.baml

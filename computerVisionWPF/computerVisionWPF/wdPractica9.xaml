@@ -10,7 +10,12 @@
     <Grid>
         <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
             <Grid>
-                <Grid Background="WhiteSmoke">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txtName" Text="Transformada de Hough" FontSize="25" Foreground="#FF494949"  HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0 0 15 5"/>
+                <Grid Background="WhiteSmoke" Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="120"/>
@@ -33,11 +38,12 @@
                             <Button x:Name="btnRectas"  Click="btnRectas_Click" Width="100" Height="40" VerticalAlignment="Center" Margin="10 3" Content="Rectas" Background="#FF363636" BorderBrush="Black"/>
 
                         </StackPanel>
-                      
+
 
                     </Grid>
 
                 </Grid>
+
             </Grid>
         </materialDesign:TransitioningContent>
     </Grid>

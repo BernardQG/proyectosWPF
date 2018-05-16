@@ -125,17 +125,13 @@ namespace computerVisionWPF
             imaContrast = new Image<Gray, byte>(imaO.Width, imaO.Height);
             imaHomogeneity = new Image<Gray, byte>(imaO.Width, imaO.Height);
             //Estableciendo el tamaño de la imagen integral
-            tam = (int)(imaO.Width * 0.1);
-            if (tam % 2 == 0) tam++;
-
-            tam = 15;
-            int N = tam * tam;
-
+                        
+                       
             for (int h = 0; h < imaO.Height; h++)
             {
                 for (int w = 0; w < imaO.Width; w++)
                 {
-                    imagenIntegral(w, h, N);
+                    imagenIntegral(w, h);
 
                 }
                 bgw.ReportProgress(h);
@@ -144,7 +140,7 @@ namespace computerVisionWPF
 
     
 
-        public void imagenIntegral(int x, int y, int N)//Representación intermedia de la imagen
+        public void imagenIntegral(int x, int y)//Representación intermedia de la imagen
         {
                       
             histogramaSumasYRestas(x, y);//Metodo
@@ -241,6 +237,17 @@ namespace computerVisionWPF
         }
         private void btnFeactures_Click(object sender, RoutedEventArgs e)
         {
+
+            if (txtT.Text != string.Empty)
+            {
+                tam = Int32.Parse(txtT.Text);
+                if (tam % 2 == 0) tam++;
+            }
+            else
+                tam = 15;
+
+            
+
             if (bgw.IsBusy != true)
             {
                 bgw.RunWorkerAsync();

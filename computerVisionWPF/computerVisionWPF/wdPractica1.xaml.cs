@@ -34,8 +34,8 @@ namespace computerVisionWPF
             imagenBase.Width = imagenBase.Height = 512;//asigna el tamaño de la imagen
             imagenBase.Cursor = Cursors.Hand;//permite cambiar el cursor cuando esta sobre la imagen, la cambia a una mano
             imagenBase.MouseDown += (s, a) => {//crea un evento del tipo mousedown y asigna su comportamiento
-                if (Unouotro) { Unouotro = false; imaColores();  }
-                else { Unouotro = true; imaAjedrez(); }
+                if (Unouotro) { Unouotro = false; imaColores();  txtName.Text = "Barras de Colores"; }
+                else { Unouotro = true; imaAjedrez(); txtName.Text = "Tablero de Ajedrez"; }
 
             };
             imaAjedrez();//por default inicia con la imagen de ajedres
