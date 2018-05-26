@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="computerVisionWPF.wdPractica4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:computerVisionWPF"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txtName" Text="Thresholding OTSU" FontSize="25" Foreground="#FF494949"  HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0 0 15 5"/>
+                <Grid Grid.Row="1">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="#FFBDBDBD" RenderingBias="Quality"/>
+                    </Grid.Effect>
+                    <Image x:Name="ctlIma"/>
+                    
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5 2">
+                        <Button x:Name="btnOpenImagen" Click="btnOpenImagen_Click" Width="40" Height="40" VerticalAlignment="Center"    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="Folder" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF7592F3"/>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock x:Name="txtH" Text="XXXXXXX" FontSize="15" Foreground="Yellow" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10 5"/>
+                </Grid>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>
