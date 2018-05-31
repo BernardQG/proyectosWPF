@@ -1,0 +1,86 @@
+﻿<Window x:Class="gameEnglishWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gameEnglishWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid >
+        <Grid MouseDown="Grid_MouseDown">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB1FFED" Offset="1"/>
+                        <GradientStop Color="#FF20A3B8"/>
+                        <GradientStop Color="#FF2BD3EE" Offset="0.537"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            
+
+        </Grid>
+        <Grid Background="#7F463E3E" Margin="5 30 5 5"/>
+        <Grid VerticalAlignment="Top" Margin="5">
+            
+            <TextBlock Text="Juego " HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" FontSize="22"  Foreground="WhiteSmoke" FontFamily="/GuarderiaCADI;component/#Champagne &amp; Limousines"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <Button x:Name="btnMini" Click="btnMini_Click" VerticalAlignment="Center" Width="25" Height="25"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10 0">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Width="15" Height="15"  Foreground="WhiteSmoke" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+                <Button x:Name="btnMaxi" Click="btnMaxi_Click" VerticalAlignment="Center" Width="25" Height="25"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10 0">
+                    <materialDesign:PackIcon Kind="WindowMaximize" Width="15" Height="15"  Foreground="WhiteSmoke" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+                <Button x:Name="btnPower" Click="btnPower_Click" VerticalAlignment="Center" Width="25" Height="25"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10 0">
+                    <materialDesign:PackIcon Kind="Power" Width="20" Height="20"  Foreground="WhiteSmoke" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="265">
+            <Rectangle RadiusY="20" RadiusX="20" Fill="#FFF1F1F1" />
+            <Grid Margin="5">
+            
+                <ListBox x:Name="ListMenu" FontFamily="/GuarderiaCADI;component/#Champagne &amp; Limousines" Foreground="#FF7A7A7A" Margin="10 30 10 10" SelectionChanged="ListMenu_SelectionChanged" SelectedIndex="0">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Play" Width="35" Height="35" VerticalAlignment="Center" Margin="10 0"/>
+                            <TextBlock Text="Continuar Juego" VerticalAlignment="Center" FontSize="20" Margin="10 0" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="NewBox" Width="35" Height="35" VerticalAlignment="Center" Margin="10 0"/>
+                            <TextBlock Text="Nuevo Juego" VerticalAlignment="Center" FontSize="20" Margin="10 0" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FormatListBulleted" Width="35" Height="35" VerticalAlignment="Center" Margin="10 0"/>
+                            <TextBlock Text="Mejor Puntuación" VerticalAlignment="Center" FontSize="19" Margin="10 0" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Settings" Width="35" Height="35" VerticalAlignment="Center" Margin="10 0"/>
+                            <TextBlock Text="Ajustes" VerticalAlignment="Center" FontSize="20" Margin="10 0" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ExitToApp" Width="35" Height="35" VerticalAlignment="Center" Margin="10 0"/>
+                            <TextBlock Text="Salir" VerticalAlignment="Center" FontSize="20" Margin="10 0" />
+                        </StackPanel>
+                    </ListViewItem>
+                    
+
+
+
+                </ListBox>
+            
+            </Grid>
+        </Grid>
+        
+
+
+    </Grid>
+</Window>

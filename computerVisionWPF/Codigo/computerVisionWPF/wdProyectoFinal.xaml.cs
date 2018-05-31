@@ -25,8 +25,8 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdProyectoFinal : UserControl
     {
-        Image<Gray, byte> imaLeft = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\imL2.png").Convert<Gray, byte>();
-        Image<Gray, byte> imaRight = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\imR2.png").Convert<Gray, byte>();
+        Image<Gray, byte> imaLeft = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\imL.png").Convert<Gray, byte>();
+        Image<Gray, byte> imaRight = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\imR.png").Convert<Gray, byte>();
         Image<Gray, byte> imaResult;
         Boolean dec = true;
         BackgroundWorker bgw = new BackgroundWorker();
@@ -41,8 +41,7 @@ namespace computerVisionWPF
             bgw.ProgressChanged += new ProgressChangedEventHandler(bgw_ProcessC);
             bgw.WorkerReportsProgress = true;
             imaResult = new Image<Gray, byte>(imaLeft.Width, imaRight.Height);
-            ctlIma.MouseDown += new MouseButtonEventHandler(lineaDisparidad);
-          //  ctlIma.MouseDown += (se, ee) => {  };
+            ctlIma.MouseDown += new MouseButtonEventHandler(lineaDisparidad);          
             def();
         }
 
@@ -134,7 +133,7 @@ namespace computerVisionWPF
                 gridLyR.Visibility = Visibility.Visible;
                 ctlImaLefh.Source = ToBitmapSource(imaLeft);
                 ctlImaRight.Source = ToBitmapSource(imaRight);
-                dec = false;
+                if(dec) dec = false;
 
             }
 
@@ -151,7 +150,7 @@ namespace computerVisionWPF
                 gridLyR.Visibility = Visibility.Visible;
                 ctlImaLefh.Source = ToBitmapSource(imaLeft);
                 ctlImaRight.Source = ToBitmapSource(imaRight);
-                dec = false;
+                if (dec) dec = false; 
             }
 
         }
@@ -179,25 +178,22 @@ namespace computerVisionWPF
 
         private void bgw_DoWork(object sender, DoWorkEventArgs e)
         {
-            //SteroMatch(imaLeft, imaRight, -2, 27, 25);
+            
             SSD(imaLeft, imaRight, 60, 7);
         }
         #endregion
         private void btnRun_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            if(!dec)
             run();
         }
         private void run()
         {
 
-            if (bgw.IsBusy != true)
-            {
+            if (bgw.IsBusy != true)            
                 bgw.RunWorkerAsync();
-            }
-            /*
-            ctlImaLefh.Source = ToBitmapSource(contrasteEcualizacion(imaLeft));
-            ctlImaRight.Source = ToBitmapSource(contrasteEcualizacion(imaRight));*/
-
+            
+         
 
         }
         
@@ -236,12 +232,16 @@ namespace computerVisionWPF
                         maxV = Ima.Data[i, j, 0];
                     if (Ima.Data[i, j, 0] < minV)
                         minV = Ima.Data[i, j, 0];
-                }         
-            
-            for (int i = 0; i < Ima.Height; i++)//recorre en vertical
-                for (int j = 0; j < Ima.Width; j++)//recorre en horizontal               
-                    Ima.Data[i, j, 0] = (byte)(255 * ((Ima.Data[i, j, 0] - minV)) / (maxV - minV));
+                }
 
+            for (int i = 0; i < Ima.Height; i++)//recorre en vertical
+                for (int j = 0; j < Ima.Width; j++)//recorre en horizontal   
+                {
+                    if ((maxV - minV) != 0)
+                        Ima.Data[i, j, 0] = (byte)(255 * ((Ima.Data[i, j, 0] - minV)) / (maxV - minV));
+                    else
+                        Ima.Data[i, j, 0] = 255;
+                }
 
             return Ima;
         }
@@ -252,13 +252,14 @@ namespace computerVisionWPF
             System.Drawing.Bitmap b = Ima.Bitmap;
             Image<Gray, byte> imaAux = new Image<Gray, byte>(b);
 
-            int tam = 7, k;
+            int tam = 3, k;
             double sum = 0;
 
-            for (int i = 0; i < Ima.Height; i++)//recorre en vertical            
+            for (int i = 0; i < Ima.Height; i++)//recorre en vertical     
+            {
                 for (int j = 0; j < Ima.Width; j++)//recorre en horizontal                                   
                 {
-                    sum = 0; k = 0;
+                    sum = 0; k = 0; 
                     for (int x = i - (int)(tam / 2); x <= i + (int)(tam / 2); x++)
                         for (int y = j - (int)(tam / 2); y <= j + (int)(tam / 2); y++)
                             if ((x >= 0 && x < Ima.Height) && (y >= 0 && y < Ima.Width))
@@ -266,10 +267,12 @@ namespace computerVisionWPF
                                 sum += Ima.Data[i, j, 0];
                                 k++;
                             }
-                    sum /= k;                    
-                        imaAux.Data[i, j, 0] = (byte)(sum);
-                  
+                    sum /= k;
+                         imaAux.Data[i, j, 0] = (byte)(sum);
+
                 }
+                bgw.ReportProgress(i);
+            }
 
             return imaAux;
 
@@ -289,7 +292,7 @@ namespace computerVisionWPF
             {
                 for (int x = 0; x <Left.Width; x++)
                 {
-                    Min = 1000;
+                    Min = 10000;
                     for (int dis = 0; dis <= d; dis++)
                     {
                         Dis3D[y, x, dis] = imagenIntegral(Left, Right, y, x, dis, dMascara);
@@ -298,17 +301,18 @@ namespace computerVisionWPF
                             Min = Dis3D[y, x, dis];
                             auxDis = dis;
                         }
-                    }
-                    // if(auxDis * 2<=255)
-                    //imaResult.Data[y, x, 0] = (byte)(auxDis*2);
-                    imaResult.Data[y, x, 0] = (byte)(auxDis);
-                    //else   imaResult.Data[y, x, 0] = 255;
+                    }                   
+                    
+                    imaResult.Data[y, x, 0] = (byte)(auxDis);                   
+
 
                 }
                 bgw.ReportProgress(y);
             }
 
-            imaResult = contrasteLineal(filtroMedia(imaResult));
+            //imaResult = contrasteLineal(filtroMedia(imaResult));
+            imaResult = contrasteLineal(imaResult);
+            //   imaResult = filtroMedia(imaResult);
 
         }
         private double imagenIntegral(Image<Gray, byte> Left, Image<Gray, byte> Right, int y, int x,int d, int dMascara)//dMascara es dimension de la sub ventanta
