@@ -72,8 +72,11 @@ namespace computerVisionWPF
                     gridMain.Children.Add(new wdProyectoFinal()); 
                     //MessageBox.Show("Aun no hecho");
                     break;
-
                 case 11:
+                    gridMain.Children.Clear();
+                    gridMain.Children.Add(new wdExamen()); break;
+
+                case 12:
                     wdwExampleOne vtnOne = new wdwExampleOne();
                     vtnOne.Show();
 

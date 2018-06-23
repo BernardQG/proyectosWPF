@@ -25,8 +25,8 @@ namespace computerVisionWPF
     /// </summary>
     public partial class wdProyectoFinal : UserControl
     {
-        Image<Gray, byte> imaLeft = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\imL.png").Convert<Gray, byte>();
-        Image<Gray, byte> imaRight = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\imR.png").Convert<Gray, byte>();
+        Image<Gray, byte> imaLeft = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\1imL.png").Convert<Gray, byte>();
+        Image<Gray, byte> imaRight = new Image<Rgb, byte>(Environment.CurrentDirectory + @"\Imagenes\ProyectoFinal\1imR.png").Convert<Gray, byte>();
         Image<Gray, byte> imaResult;
         Boolean dec = true;
         BackgroundWorker bgw = new BackgroundWorker();

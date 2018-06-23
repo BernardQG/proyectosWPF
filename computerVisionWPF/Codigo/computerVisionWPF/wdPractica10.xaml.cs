@@ -138,16 +138,7 @@ namespace computerVisionWPF
             }          
         }
 
-        private void humbral(Image<Gray, byte> ima, int h)//Toleracia binaria
-        {
-            for (int i = 0; i < imaO.Height; i++)//recorre en vertical      
-
-                for (int j = 0; j < imaO.Width; j++)//recorre en horizontal
-                {
-                    if (ima.Data[i, j, 0] > h) ima.Data[i, j, 0] = 255;
-                    else ima.Data[i, j, 0] = 0;
-                }
-        }
+    
 
 
         public void imagenIntegral(int x, int y)//Representación intermedia de la imagen
@@ -204,7 +195,7 @@ namespace computerVisionWPF
             imaMean.Data[y, x, 0] = (byte)(sumU);
             imaVariance.Data[y, x, 0] = (byte)(((sumVyRPs + sumVyRPd) /2)/255);
             imaCorrelation.Data[y, x, 0] = (byte)(((sumVyRPs - sumVyRPd) / 2) / 255);
-            imaEnergy.Data[y, x, 0] = (byte)((sumPs * sumPd) * (3) *255);            
+            imaEnergy.Data[y, x, 0] = (byte)((sumPs * sumPd) * (2) *255);            
             imaEntropy.Data[y, x, 0] = (byte)(((-sumEPs-sumEPd)/ Math.Log10(nPd*nPs)) *255);
             imaContrast.Data[y, x, 0] = (byte)(sumC/255);
             imaHomogeneity.Data[y, x, 0] = (byte)(sumH*255);

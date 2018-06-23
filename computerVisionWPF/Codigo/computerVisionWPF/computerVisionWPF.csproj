@@ -99,6 +99,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="wdExamen.xaml.cs">
+      <DependentUpon>wdExamen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wdMain.xaml.cs">
       <DependentUpon>wdMain.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="wdExamen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="wdMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

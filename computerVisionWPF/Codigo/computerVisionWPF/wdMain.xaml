@@ -78,8 +78,12 @@
                                 <TextBlock Text="Proyecto F."   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0"  />
                             </ListViewItem>
                             <ListViewItem Height="55"   >
+                                <TextBlock Text="Examen"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0" />
+                            </ListViewItem>
+                            <ListViewItem Height="55"   >
                                 <TextBlock Text="Pruebas"   Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0" />
                             </ListViewItem>
+                            
 
 
                         </ListView>
